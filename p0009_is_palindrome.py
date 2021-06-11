@@ -1,4 +1,4 @@
-from memory_profiler import profile
+# from memory_profiler import profile
 from math import log10, floor
 class Solution1:
     def isPalindrome(self, x: int) -> bool:
@@ -76,8 +76,29 @@ class Solution4:
                 return True
         return True
 
+class Solution5:
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0:
+            return False
+        elif x < 10:
+            return True
+        elif x % 10 == 0:
+            return False
+        a, b = x, 0
+        while a >= b:
+            if a == b:
+                return True
+            reminder = a % 10
+            a = a // 10
+            if a == 0:
+                return False
+            if a == b:
+                return True
+            b = b * 10 + reminder
+        return False
 
-@profile
+
+# @profile
 def test_solution():
     s = Solution3()
     try:
@@ -89,3 +110,20 @@ def test_solution():
         return 'Failed'
     else:
         return 'Passed'
+
+def test_args():
+    s = Solution5()
+    func = s.isPalindrome
+    test_cases = (
+        (1221, True), 
+        (121, True), 
+        (10, False), 
+        (100021, False), 
+        (-121, False),
+        (11, True),
+        (1001, True),
+        (313, True),
+        (101, True),
+        (21120, False)
+    )
+    return func, test_cases

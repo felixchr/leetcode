@@ -31,3 +31,15 @@ def test_solution():
         print('Failed!')
     else:
         print('Passed!')
+
+def test_args():
+    s = Solution()
+    func = s.romanToInt
+    test_cases = (
+        ('III', 3), 
+        ('IV', 4), 
+        ('IX', 9), 
+        ('LVIII', 58), 
+        ('MCMXCIV', 1994)
+    )
+    return func, test_cases

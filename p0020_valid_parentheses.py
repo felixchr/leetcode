@@ -30,3 +30,15 @@ def test_solution():
     else:
         print('Passed!')
     
+def test_args():
+    s = Solution()
+    func = s.isValid
+    test_cases = (
+        ('()', True),
+        ('(){}[]', True),
+        ('(]', False),
+        ('([)]', False),
+        ('{[]}', True),
+        ('{{}[][[[]]]}', True)
+    )
+    return func, test_cases

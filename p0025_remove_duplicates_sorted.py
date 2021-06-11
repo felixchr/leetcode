@@ -23,3 +23,13 @@ def test_solution():
             break
     else:
         print('Passed!')
+
+
+def test_args():
+    s = Solution()
+    func = s.removeDuplicates
+    test_cases = (
+        (([1, 1, 2],), 2),
+        (([0,0,1,1,1,2,2,3,3,4],), 5)
+    )
+    return func, test_cases

@@ -28,6 +28,17 @@ class Solution2:
             ret.insert(0, '1')
         return ''.join(ret)
 
+def test_args():
+    s = Solution2()
+    func = s.addBinary
+    test_cases = (
+        (('11', '1'), '100'),
+        (('1010', '1011'), '10101'),
+        (('0', '0'), '0')
+    )
+    return func, test_cases
+
+
 def test_solution():
     s = Solution2()
     test_cases = (
