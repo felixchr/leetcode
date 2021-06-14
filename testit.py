@@ -28,4 +28,6 @@ def testit(module_name):
 
 if __name__ == '__main__':
     module = sys.argv[1]
+    if module.endswith('.py'):
+        module = module[:-3]
     testit(module)

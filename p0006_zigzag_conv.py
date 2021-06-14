@@ -43,3 +43,15 @@ def test_solution():
             break
     else:
         print('Passed')
+
+def test_args():
+    s = Solution()
+    func = s.convert
+    test_cases = (
+        (('PAYPALISHIRING', 3), 'PAHNAPLSIIGYIR'),
+        (('PAYPALISHIRING', 4), 'PINALSIGYAHRPI'),
+        (('', 1), ''),
+        (('A', 1), 'A'),
+        (('AB', 1), 'AB')
+    )
+    return func, test_cases

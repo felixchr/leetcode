@@ -37,9 +37,28 @@ class Solution:
                 longest = sub_s
         return longest
 
+class Solution2:
+    def longestPalindrome(self, s: str) -> str:
+        def helper(s, l, r):
+            while l >= 0 and r < len(s) and s[l] == s[r]:
+                l -= 1
+                r += 1
+            return s[l+1:r]
+        len_s = len(s)
+        if len_s <= 1:
+            return s
+        ret = ''
+        for i in range(len(s)):
+            tmp = helper(s, i, i)
+            if len(tmp) > len(ret):
+                ret = tmp
+            tmp = helper(s, i, i+1)
+            if len(tmp) > len(ret):
+                ret = tmp
+        return ret
 
-def test_solution():
-    s = Solution()
+def test_args():
+    s = Solution2()
     test_cases = (
         ('babad', 'bab'),
         ('cbbd', 'bb'),
@@ -50,12 +69,5 @@ def test_solution():
         ('aaaa', 'aaaa'),
         ('aaabaaaa', 'aaabaaa')
     )
-    for in_str, out_str in test_cases:
-        print('Testing {}'.format(in_str))
-        out = s.longestPalindrome(in_str)
-        if out != out_str:
-            print(in_str, out_str, out)
-            print('Failed!')
-            break
-    else:
-        print('Passed!')
+    func = s.longestPalindrome
+    return func, test_cases
