@@ -26,6 +26,8 @@ class ListNode:
         return 'ListNode([{}])'.format(','.join(l))
 
 def create_node_list(l: list) -> ListNode:
+    if len(l) == 0:
+        return None
     node_arr = [ListNode(i) for i in l]
     head = node_arr[0]
     for i, node in enumerate(node_arr[:-1]):
